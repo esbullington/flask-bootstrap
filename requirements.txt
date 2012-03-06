@@ -1,0 +1,8 @@
+Flask
+Flask-Script
+WTForms
+Flask-WTF
+SQLAlchemy
+Flask-SQLAlchemy
+Flask-Auth
+redis
