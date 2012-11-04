@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, make_response, render_template, flash, redirect, url_for, session, escape, g
 from models.database import db_session
-from flaskext.sqlalchemy import SQLAlchemy
-from flaskext.auth import Auth, AuthUser, login_required, logout
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.auth import Auth, AuthUser, login_required, logout
 from models.sa import get_user_class
 
 app = Flask(__name__)
