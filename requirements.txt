@@ -6,3 +6,4 @@ SQLAlchemy
 Flask-SQLAlchemy
 Flask-Auth
 redis
+psycopg2
