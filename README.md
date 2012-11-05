@@ -7,24 +7,13 @@ Flask application framework pre-configured for SQL Alchemy, flask-auth authentic
     cd flask-bootstrap
     pip install -r requirements.txt
 
-## Run the app locally
-
-
-## Deploy to AWS
-
-Change the appropriate settings in fabfile.py and 
-    fab deploy
-
 
 ## Features
 
 * Default templates with HTML5 Boilerplate included
-* Ready to go manage.py that uses the excellent Flask-Script package
-* Supervisord config to run your app on uwsgi
-* Nginx config and required dependencies
-* Pre built fabfile for deployment on ec2 via Fabric
 * Base requirements.txt
 * Bootstrap frontend framework from Twitter
+* Pre-integrated with flask-auth, just create your postgres db and fill in app.cfg accordingly
 
 
 ##To Do 
