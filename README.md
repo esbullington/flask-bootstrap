@@ -28,4 +28,8 @@ Change the appropriate settings in fabfile.py and
 * Bootstrap frontend framework from Twitter
 
 
+##TO DO 
+
+* Set up default user authorization for admin user (authentication has already been setup using flask-auth)
+* Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator), ideally one that compiles CoffeeScript
 
