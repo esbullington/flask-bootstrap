@@ -1,7 +1,7 @@
 # flask-bootstrap
 
-Flask application framework pre-configured for SQL Alchemy, flask-auth authentication, and Twitter bootstrap frontend.
-Based on Flask Tool's simple app template by imlucas and Twitter's bootstrap framework.
+Flask application framework pre-configured for SQL Alchemy, flask-auth authentication, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
+Based on [Flask Tool's](https://github.com/imlucas/flask-tool) simple app template by [imlucas](http://www.imlucas.com/) and Twitter's [Bootstrap framework](http://twitter.github.com/bootstrap/).
 
 ## Install
     git clone git://github.com/esbullington/flask-bootstrap.git
