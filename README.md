@@ -1,7 +1,6 @@
 # flask-bootstrap
 
 Flask application framework pre-configured for SQL Alchemy, flask-auth authentication, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
-Based on [Flask Tool's](https://github.com/imlucas/flask-tool) simple app template by [imlucas](http://www.imlucas.com/) and Twitter's [Bootstrap framework](http://twitter.github.com/bootstrap/).
 
 ## Install
     git clone git://github.com/esbullington/flask-bootstrap.git
@@ -28,7 +27,7 @@ Change the appropriate settings in fabfile.py and
 * Bootstrap frontend framework from Twitter
 
 
-##TO DO 
+##To Do 
 
 * Set up default user authorization for admin user (authentication has already been setup using flask-auth)
 * Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator), ideally one that compiles CoffeeScript
