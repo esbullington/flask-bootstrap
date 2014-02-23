@@ -1,4 +1,4 @@
-##flask-bootstrap Copyright 2012 Eric S. Bullington
+##flask-bootstrap Copyright 2014 Eric S. Bullington
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-##Bootstrap Copyright 2012 Twitter
+##Bootstrap Copyright 2014 Twitter
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+##Bootstrap Copyright 2014 jQuery 
 
 Copyright 2014 jQuery Foundation and other contributors
 http://jquery.com/
