@@ -1,5 +1,15 @@
-<form method="POST">
-    Username: <input type="text" name="username"/><br/>
-    Password: <input type="password" name="password"/><br/>
-    <input type="submit" value="Create"/>
-</form>
+{% extends "base.html" %}
+
+{% block title %}Signup{% endblock %}
+
+{% block main %}
+
+  <div id="forms">
+    <form method="POST">
+        Username: <input type="text" name="username"/><br/>
+        Password: <input type="password" name="password"/><br/>
+        <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+{% endblock %}

@@ -10,14 +10,13 @@ Flask application framework pre-configured for SQL Alchemy, flask-auth authentic
 
 ## Features
 
-* Default templates with HTML5 Boilerplate included
-* Base requirements.txt
-* Bootstrap frontend framework from Twitter
-* Pre-integrated with flask-auth, just create your postgres db and fill in app.cfg accordingly
+* Base requirements.txt.
+* Bootstrap 3.1 frontend framework from Twitter.
+* Pre-integrated with flask-auth, just create your postgres db and fill in models and app.cfg accordingly.
+* Existing user model and basic login/signup.
 
 
 ##To Do 
-
 * Set up default user authorization for admin user (authentication has already been setup using flask-auth)
-* Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator), ideally one that compiles CoffeeScript
+* Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator).
 
