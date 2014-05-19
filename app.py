@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, make_response, render_template, flash, redirect, url_for, session, escape, g
-from models.database import db_session
+from models import database
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.auth import Auth, AuthUser, login_required, logout
 from models.sa import get_user_class
 
 app = Flask(__name__)
-app.config.from_pyfile('app.cfg')
+app.config.from_pyfile('local.cfg')
 
-# Instantiate DB
+# Instantiate and start DB
 db = SQLAlchemy(app)
+db_session = database.init_db(app.config.get('SQLALCHEMY_DATABASE_URI'))
 
 ## Set SQL Alchemy to automatically tear down
 @app.teardown_request
@@ -77,11 +78,8 @@ app.add_url_rule('/users/create/', 'user_create', user_create, methods=['GET', '
 app.add_url_rule('/logout/', 'logout', logout_view)
 
 # Secret key needed to use sessions.
-app.secret_key = 'mysecretkey'
+app.secret_key = app.config['SECRET_KEY']
   
 if __name__ == "__main__":
-    try:
-        open('/tmp/app.db')
-    except IOError:
-        db.create_all()
-    app.run(debug=True,host='127.0.0.1')
+    print "Host ip is: " + app.config['HOST_IP']
+    app.run(debug=app.config.get('DEBUG'), host=app.config.get('HOST_IP'))
