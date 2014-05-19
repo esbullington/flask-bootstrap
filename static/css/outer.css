@@ -1,3 +1,35 @@
 #forms {
   padding: 50px;
 }
+
+#my-nav-bar {
+  position: fixed;
+  top: 0px;
+  background-color: black;
+  height: 35px;
+  width: 100%;
+  z-index: 99;
+  font-color: white;
+}
+
+.project-name {
+  color: grey !important;
+}
+
+.user-login {
+  margin-top: 10px;
+  margin-right: 35px;
+}
+
+.user-login {
+  color: white !important;
+}
+
+.project-name {
+  display: block;
+  float: left;
+  padding: 6px 20px 0px;
+  font-size: 18px;
+  font-weight: 200;
+  color: #777777;
+}
