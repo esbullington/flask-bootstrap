@@ -21,7 +21,6 @@ def shutdown_session(exception=None):
 auth = Auth(app, login_url_name='login')
 User = get_user_class(db.Model)
 
-
 def index():
     return render_template('index.html')
 
@@ -40,6 +39,7 @@ def login():
                 flash('Incorrect password. Please try again')
                 return render_template('login.html')
         else:
+            session['username'] = None
             flash('Incorrect username. Please try again')
             return render_template('login.html')
     return render_template('login.html')
@@ -63,6 +63,7 @@ def user_create():
 
 def logout_view():
     user_data = logout()
+    session['username'] = None
     if user_data is None:
         msg = 'No user to log out.'
         return render_template('logout.html', msg=msg)

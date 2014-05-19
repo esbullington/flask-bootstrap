@@ -2,10 +2,10 @@
   <!-- nav bar content -->
   <div class="navbar-top-fixed">
     <a href="/" class="project-name">Project name</a>
-    {% if current_user.is_authenticated() %}
-    <a href="#" class="user-login navbar-link dropdown-toggle pull-right" data-toggle="dropdown">Current user: {% session['username'] %}<b class="caret"></b></a>
+    {% if session['username'] is defined %}
+    <a href="#" class="user-login navbar-link dropdown-toggle pull-right" data-toggle="dropdown">Logged in as: {{ session['username'] }}<b class="caret"></b></a>
       <ul class="dropdown-menu pull-right">
-        <li><a href="/logout/">Login</a></li>
+        <li><a href="/logout/">Logout</a></li>
       </ul>
     {% else %}
       <a href="#" class="user-login navbar-link dropdown-toggle pull-right" data-toggle="dropdown">User Login <b class="caret"></b></a>
