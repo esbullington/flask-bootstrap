@@ -50,7 +50,10 @@ drop_db:
 	echo "DROP USER $(DB_OWNER);" | sudo -u postgres psql && \
 	sudo service postgresql reload
 
+list:
+	git ls-tree --full-tree -r HEAD
+
 run:
-	python app.py -c $(LOCAL_CFG)
+	. $(VENV_DIR)/bin/activate && python app.py
 
 .PHONY: install create_db python_depens system_depens create_virtualenv remove_python_depens drop_db

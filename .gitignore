@@ -2,3 +2,4 @@
 logs/*.log
 local.cfg
 venv
+*.swo

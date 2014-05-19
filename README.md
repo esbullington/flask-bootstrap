@@ -1,11 +1,18 @@
 # flask-bootstrap
 
-Flask application framework pre-configured for SQL Alchemy, flask-auth authentication, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.  If you are looking for a Flask extension that uses Flask blueprints, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
+Flask application framework pre-configured for SQL Alchemy, flask-auth authentication, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
+
+If you are looking for a Flask extension that uses Flask blueprints, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
 
 ## Install
+The main system dependencies are Python, Postgreql, and their respective development packages.  It could be easily adapted to run on MySQL or even SQLite, but the default installation instructions and Makefile below assume the use of PostgreSQL.
 
-The main system dependencies are Python, Postgreql, and their respective development packages
+#### Makefile
+If you're on Ubuntu or Mint and you using Make, you're in luck. There is a very convenient Makefile to install and run the application (should work with Debian with a few minor changes).  If you wish to use the Makefile, then simply fill in the appropriate config variables in the Makefile, run `make install` to install dependencies, and `make run` to start the application.  The Makefile installation will even create a default `local.cfg` containing your project's configuration, for you to use and customize.
 
+Otherwise, refer to the instructions below.
+
+#### 1. System dependencies: 
 On Ubuntu or Debian, first install:
 
     sudo apt-get install postgresql python-dev libpq-dev
@@ -14,21 +21,28 @@ Red Hat, Fedora, and  other derivatives are said to require (confirmation would 
 
     yum install yum install postgresql-devel postgresql-libs libpqxx-devel
 
-A brief article on getting these dependencies running on Windows (exact instructions would be welcome):
+Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome)
 
-    http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/
+#### 2. Python virtual environment and dependencies
+It's probably a good idea to create a virtual environment for this project:
+    pip install virtualenv
+Then, create a project virtual environment.  I like to host my virtual environments in each project directory (but include it in the .gitignore so it's not gitable). So something like:
 
-Once you have these installed on your system, the rest is simple:
+    virtualenv venv
+    source venv/bin/activate
+
+Once you have the virtual environment installed on your system, and the system dependencies, the rest is simple:
 
     git clone git://github.com/esbullington/flask-bootstrap.git
     cd flask-bootstrap
     pip install -r requirements.txt
+
     
 ## Quickstart
 * Install above dependencies
-* Customize your app.cfg (renaming it would be a good idea)
+* Customize your `app.cfg` (`local.cfg` would be a good name)
 * Get postgresql set up as outlined here: http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/
-* Then: `python app.py -c yourconfig.cfg`
+* Then: `python app.py`
 
 ## Features
 * Base requirements.txt.
@@ -37,6 +51,5 @@ Once you have these installed on your system, the rest is simple:
 * Existing user model and basic login/signup.
 
 ##To Do 
-* Set up default user authorization for admin user (authentication has already been setup using flask-auth)
+* Unit tests for both Flask app and JavaScript
 * Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator)
-
