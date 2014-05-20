@@ -2,8 +2,8 @@
 from flask import Flask, request, jsonify, make_response, render_template, flash, redirect, url_for, session, escape, g
 from models import database
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.auth import Auth, AuthUser, login_required, logout
-from models.sa import get_user_class
+from flask.ext.login import LoginManager
+from models.appmodels import User, ROLE_USER, ROLE_ADMIN
 
 app = Flask(__name__)
 app.config.from_pyfile('local.cfg')
@@ -17,9 +17,15 @@ db_session = database.init_db(app.config.get('SQLALCHEMY_DATABASE_URI'))
 def shutdown_session(exception=None):
     db_session.remove()
 
-# Instantiate authentication
-auth = Auth(app, login_url_name='login')
-User = get_user_class(db.Model)
+# Instantiate login
+lm = LoginManager()
+lm.init_app(app)
+lm.login_view = 'login'
+
+# Load user into each response
+@lm.user_loader
+def load_user(id):
+        return User.query.get(int(id))
 
 def index():
     return render_template('index.html')
@@ -28,6 +34,8 @@ def index():
 
 def login():
     if request.method == 'POST':
+        if g.user is not None and g.user.is_authenticated():
+            return redirect(url_for('home'))
         username = request.form['username']
         user = User.query.filter(User.username==username).first()
         if user is not None:

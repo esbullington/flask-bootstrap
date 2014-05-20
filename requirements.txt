@@ -4,6 +4,6 @@ WTForms
 Flask-WTF
 SQLAlchemy
 Flask-SQLAlchemy
-Flask-Auth
+Flask-Login
 redis
 psycopg2
