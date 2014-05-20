@@ -43,7 +43,8 @@ create_db:
 	echo "CREATE USER $(DB_OWNER) WITH PASSWORD '$(DB_PASSWD)';" | sudo -u postgres psql && \
 	echo "CREATE DATABASE $(DB_NAME);" | sudo -u postgres psql && \
 	echo "GRANT ALL PRIVILEGES ON DATABASE $(DB_NAME) to $(DB_OWNER);" | sudo -u postgres psql && \
-	sudo service postgresql reload
+	sudo service postgresql reload && \
+	python utils/createdb.py
 
 drop_db:
 	@ echo "DROP DATABASE $(DB_NAME);" | sudo -u postgres psql && \

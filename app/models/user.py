@@ -1,17 +1,18 @@
 from sqlalchemy import Column, Integer, String
 import datetime
-from app import db
+from app.database import db
 
 ROLE_USER = 0
 ROLE_ADMIN = 1
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    # title = db.relationship('Title', backref = 'title', lazy = 'dynamic')
-    first_name = db.Column(db.String(64), unique = True)
-    last_name = db.Column(db.String(64), unique = True)
-    middle_name = db.Column(db.String(64), unique = True)
+    username = db.Column(db.String(64), unique = True)
     email = db.Column(db.String(120), unique = True)
+    # title = db.relationship('Title', backref = 'title', lazy = 'dynamic')
+    first_name = db.Column(db.String(64))
+    last_name = db.Column(db.String(64))
+    middle_name = db.Column(db.String(64))
     role = db.Column(db.SmallInteger, default = ROLE_USER)
     created_on = db.Column(db.DateTime)      
 
