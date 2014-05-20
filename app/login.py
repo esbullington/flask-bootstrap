@@ -3,7 +3,7 @@ from flask import request, make_response, render_template, flash, redirect, url_
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
 from app.models.user import User, ROLE_USER, ROLE_ADMIN
-from app.database import db
+from app.database import db, bcrypt
 
 # Instantiate login
 login_manager = LoginManager()
@@ -22,7 +22,11 @@ def login_view():
         return redirect(url_for('home'))
     username = request.form['username']
     user = User.query.filter(User.username==username).first()
-    if user is not None:
+    if user is None:
+        flash('No such user. Please try again')
+        return render_template('login.html')
+    pw_check = bcrypt.check_password_hash(user.pw_hash, request.form['password'])
+    if not pw_check:
         flash('Incorrect password. Please try again')
         return render_template('login.html')
     login_user(user)
@@ -35,8 +39,8 @@ def user_create():
         if User.query.filter(User.username==username).first():
             flash('User already exists. Please log in.')
             return redirect(url_for('login'))
-        password = request.form['password']
-        user = User(username=username, password=password)
+        pw_hash = bcrypt.generate_password_hash(request.form['password'])
+        user = User(username=username, pw_hash=pw_hash)
         db.session.add(user)
         db.session.commit()
         flash('User successfully registered. Please log in.')

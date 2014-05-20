@@ -10,6 +10,7 @@ class User(db.Model):
     username = db.Column(db.String(64), unique = True)
     email = db.Column(db.String(120), unique = True)
     # title = db.relationship('Title', backref = 'title', lazy = 'dynamic')
+    pw_hash = db.Column(db.String(480))
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
     middle_name = db.Column(db.String(64))
