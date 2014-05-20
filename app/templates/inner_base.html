@@ -24,15 +24,12 @@
   <link rel="shortcut icon" href="/static/favicon.ico">
   <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
 
-  <!-- CSS: implied media=all -->
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="/static/css/style.css">
+  <!-- Bootstrap css -->
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="/static/css/inner.css">
   <!-- end CSS-->
-
-  <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
   <!-- All JavaScript at the bottom, except for Modernizr / Respond.
        Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
@@ -45,12 +42,12 @@
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-            <div class="container">
-                <div class="alert alert-warning alert-dismissable">
-                <a class="close" data-dismiss="alert" href="#">×</a>
-                  {{ message }}
-                </div>
+          <div class="container">
+            <div class="alert alert-warning alert-dismissable">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+              {{ message }}
             </div>
+          </div>
         {% endfor %}
       {% endif %}
     {% endwith %}

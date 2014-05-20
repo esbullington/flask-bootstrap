@@ -1,11 +1,19 @@
-<div id="my-nav-bar">
+<!-- <div id="my&#45;nav&#45;bar"> -->
   <!-- nav bar content -->
-  <div class="navbar-top-fixed">
-    <a href="/" class="project-name">Project name</a>
-    <a href="#" class="user-login navbar-link dropdown-toggle pull-right" data-toggle="dropdown">User Login <b class="caret"></b></a>
-    <ul class="dropdown-menu pull-right">
-      <li><a href="/login/">Login</a></li>
-      <li><a href="/users/create/">Signup</a></li>        
-    </ul>
+  <div class="navbar navbar-fixed-top navbar-inverse" >
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">Project name</a>
+    </div>
+    {% if current_user.is_authenticated() %}
+      <a href="#" class="user-login navbar-link dropdown-toggle pull-right" data-toggle="dropdown">Logged is as: {{ current_user.username }} <b class="caret"></b></a>
+      <ul class="dropdown-menu pull-right">
+        <li><a href="/logout/">Logout</a></li>
+      </ul>
+    {% else %}
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/login/">Login</a></li>
+        <li><a href="/users/create/">Signup</a></li>        
+      </ul>
+    {% endif %}
   </div>
-</div>
+<!-- </div> -->
