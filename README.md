@@ -1,8 +1,8 @@
 # flask-bootstrap
 
-Flask application framework pre-configured for SQL Alchemy, flask-auth authentication, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
+Flask application framework pre-configured for SQL Alchemy, flask-login, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
 
-If you are looking for a Flask extension that uses Flask blueprints, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
+If you are looking for a Flask extension that uses Flask blueprints to provide Bootstrap support, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
 
 ## Install
 The main system dependencies are Python, Postgreql, and their respective development packages.  It could be easily adapted to run on MySQL or even SQLite, but the default installation instructions and Makefile below assume the use of PostgreSQL.
@@ -42,14 +42,24 @@ Once you have the virtual environment installed on your system, and the system d
 * Install above dependencies
 * Customize your `app.cfg` (`local.cfg` would be a good name)
 * Get postgresql set up as outlined here: http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/
-* Then: `python app.py`
+* Then: `python app.py` or `make run`
+
+## Tests
+`make test` or `python manage.py testall`
 
 ## Features
 * Base requirements.txt.
 * Bootstrap 3.1 frontend framework from Twitter.
-* Pre-integrated with flask-auth, just create your postgres db and fill in models and app.cfg accordingly.
+* Pre-integrated with flask-login, just create your postgres db and fill in models and app.cfg accordingly.
 * Existing user model and basic login/signup.
 
-##To Do 
-* Unit tests for both Flask app and JavaScript
-* Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator)
+##Roadmap
+* For v0.0.2 release (imminent)
+    - More unit tests for Flask app and JavaScript
+    - Coherent organization of CSS assets
+    - Flask-WTF support
+* For v0.0.3 (April 2014)
+    - Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator)
+    - Automated app naming through Flask-Script or Makefile
+    - Add more and better documentation, using Sphinx and mitsuhiko/flask-sphinx-themes
+    - Comprehensive security review and tests using OWASP standards
