@@ -46,8 +46,8 @@ Once you have the virtual environment installed on your system, and the system d
 
 ## Tests
 `make test` or `python manage.py testall`
-.. image:: https://travis-ci.org/esbullington/flask-bootstrap.png?branch=development
-    :target: https://travis-ci.org/esbullington/flask-bootstrap
+
+[![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=development)](https://travis-ci.org/esbullington/flask-bootstrap)
 
 ## Features
 * Base requirements.txt.
