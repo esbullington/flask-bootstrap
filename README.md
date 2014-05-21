@@ -50,9 +50,11 @@ Once you have the virtual environment installed on your system, and the system d
 `make test` or `python manage.py testall`
 
 Master:
+
 [![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=master)](https://travis-ci.org/esbullington/flask-bootstrap)
 
 Dev:
+
 [![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=development)](https://travis-ci.org/esbullington/flask-bootstrap)
 
 ## Features
