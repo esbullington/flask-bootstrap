@@ -28,5 +28,10 @@ def testdb():
 def testall():
     testdb()
 
+@manager.command
+def testtravis():
+    app.config.from_envvar('SQLALCHEMY_DATABASE_URI')
+
+
 if __name__ == "__main__":
     manager.run()

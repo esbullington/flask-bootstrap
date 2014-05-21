@@ -12,7 +12,6 @@ app.config.from_pyfile('../local.cfg')
 # Secret key needed to use sessions.
 app.secret_key = app.config['SECRET_KEY']
 
-
 ## Initialize SQL Alchemy and Flask-Login
 # Instantiate the Bcrypt extension
 db.init_app(app)
