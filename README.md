@@ -1,5 +1,7 @@
 # flask-bootstrap
 
+[![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=master)](https://travis-ci.org/esbullington/flask-bootstrap)
+
 Flask application framework pre-configured for SQL Alchemy, flask-login, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
 
 If you are looking for a Flask extension that uses Flask blueprints to provide Bootstrap support, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
@@ -46,8 +48,12 @@ Once you have the virtual environment installed on your system, and the system d
 
 ## Tests
 `make test` or `python manage.py testall`
-.. image:: https://travis-ci.org/esbullington/flask-bootstrap.png?branch=development
-    :target: https://travis-ci.org/esbullington/flask-bootstrap
+
+Master:
+[![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=master)](https://travis-ci.org/esbullington/flask-bootstrap)
+
+Dev:
+[![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=development)](https://travis-ci.org/esbullington/flask-bootstrap)
 
 ## Features
 * Base requirements.txt.
