@@ -9,7 +9,6 @@ class DatabaseTestCase(unittest.TestCase):
     def setUp(self):
         app = create_app()
         app.config['TESTING'] = True
-        app.config.from_pyfile('../config/local.cfg')
         self.app = app.test_client()
         db.create_all()
 
