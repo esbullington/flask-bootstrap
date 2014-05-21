@@ -10,7 +10,7 @@
 
     <title>{% block title %}{% endblock %}</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap and core HTML5 Boilerplate CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/style.css" rel="stylesheet">
 
@@ -48,7 +48,7 @@
     {% include 'topnav.html' %}
 
 
-    <div class="container">
+    <div class="primary container">
 
       <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
@@ -67,6 +67,14 @@
               <li class="active"><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Link<b class="caret"></b></a>
+                <ul class="dropdown-menu right">
+                  <li><a href="#">Mist link #1</a></li>
+                  <li><a href="#">Misc Link #2</a></li>        
+                </ul>
+              </li> 
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

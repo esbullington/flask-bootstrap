@@ -48,10 +48,8 @@ def user_create():
     return render_template('user_create.html')
 
 def logout_view():
-    logged_out_msg = 'Logged out user {0}'.format(g.user.username)
     logged_out = logout_user()
-    session['username'] = None
     if logged_out:
-        return render_template('logout.html', msg=logged_out_msg)
+        return render_template('logout.html', msg="User logged out")
     msg = 'No user to log out.'
     return render_template('logout.html', msg=msg)
