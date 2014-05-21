@@ -44,7 +44,8 @@ create_db:
 	echo "CREATE DATABASE $(DB_NAME);" | sudo -u postgres psql && \
 	echo "GRANT ALL PRIVILEGES ON DATABASE $(DB_NAME) to $(DB_OWNER);" | sudo -u postgres psql && \
 	sudo service postgresql reload && \
-	python utils/createdb.py
+	. $(VENV_DIR)/bin/activate && \
+	python manage.py createdb
 
 drop_db:
 	@ echo "DROP DATABASE $(DB_NAME);" | sudo -u postgres psql && \
