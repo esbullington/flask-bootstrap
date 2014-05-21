@@ -1,14 +1,15 @@
 import unittest
 from app.models import User
-from app import app, db
+from app import create_app, db
 
 
 class DatabaseTestCase(unittest.TestCase):
     """ setup and teardown for testing the database """
 
     def setUp(self):
+        app = create_app()
         app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@127.0.0.1/travis_ci_test'
+        app.config.from_pyfile('../config/local.cfg')
         self.app = app.test_client()
         db.create_all()
 

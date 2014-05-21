@@ -1,11 +1,16 @@
 # manage.py
-
-from flask.ext.script import Manager
+from flask.ext.script import Shell, Manager
 
 from app.database import db
-from app import app
+from app import models
+from app import create_app
 
-manager = Manager(app)
+def _make_context():
+    return dict(app=create_app, db=db, models=models)
+
+manager = Manager(create_app)
+manager.add_option('-c', '--config', dest='config', required=False)
+manager.add_command("shell", Shell(use_ipython=True, make_context=_make_context))
 
 @manager.command
 def createdb():
@@ -27,11 +32,6 @@ def testdb():
 @manager.command
 def testall():
     testdb()
-
-@manager.command
-def testtravis():
-    app.config.from_envvar('SQLALCHEMY_DATABASE_URI')
-
 
 if __name__ == "__main__":
     manager.run()

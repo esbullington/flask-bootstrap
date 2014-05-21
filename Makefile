@@ -30,8 +30,9 @@ python_depens:
 	pip install -r requirements.txt
 
 create_cfg:
-	@ test -f $(LOCAL_CFG) || cat app.cfg > $(LOCAL_CFG) && \
-	echo "SECRET_KEY = '"`cat /dev/urandom| tr -dc 'a-zA-Z0-9' | fold -w 32| head -n 1`"'" >> $(LOCAL_CFG)
+	@ test -f config/$(LOCAL_CFG) || cat config/example.cfg > config/$(LOCAL_CFG) && \
+	export SQLALCHEMY_DATABASE_URI="postgresql://$(DB_OWNER):$(DB_PASSWD)@127.0.0.1/$(DB_NAME)" && \
+	export FLASK_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
 remove_python_depens:
 	. $(VENV_DIR)/bin/activate && \

@@ -1,5 +1,6 @@
 *.pyc
 logs/*.log
-local.cfg
+config/development.cfg
+config/local.cfg
 venv
 *.swo
