@@ -19,3 +19,6 @@ install: "pip install -r requirements.txt"
 
 # command to run tests
 script: "python manage.py -c ../config/travis.cfg testall"
+
+notifications:
+  email: false
