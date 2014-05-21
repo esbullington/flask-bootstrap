@@ -17,5 +17,16 @@ def dropdb():
     db.init_app(app)
     db.drop_all()
 
+@manager.command
+def testdb():
+    from tests.test_database import DatabaseTestCase
+    import unittest
+    runner = unittest.TextTestRunner()
+    runner.run(unittest.makeSuite(DatabaseTestCase))
+
+@manager.command
+def testall():
+    testdb()
+
 if __name__ == "__main__":
     manager.run()

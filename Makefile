@@ -52,6 +52,9 @@ drop_db:
 	echo "DROP USER $(DB_OWNER);" | sudo -u postgres psql && \
 	sudo service postgresql reload
 
+test:
+	@ python manage.py testall
+
 list:
 	git ls-tree --full-tree -r HEAD
 
