@@ -5,6 +5,7 @@ from app.database import db
 from app import models
 from app import create_app
 
+
 def _make_context():
     return dict(app=create_app, db=db, models=models)
 
@@ -14,11 +15,13 @@ manager.add_command("shell", Shell(use_ipython=True, make_context=_make_context)
 
 @manager.command
 def createdb():
+    app = create_app()
     db.init_app(app)
     db.create_all()
 
 @manager.command
 def dropdb():
+    app = create_app()
     db.init_app(app)
     db.drop_all()
 
