@@ -32,7 +32,7 @@ python_depens:
 create_cfg:
 	@ test -f config/$(LOCAL_CFG) || cat config/example.cfg > config/$(LOCAL_CFG) && \
 	export SQLALCHEMY_DATABASE_URI="postgresql://$(DB_OWNER):$(DB_PASSWD)@127.0.0.1/$(DB_NAME)" && \
-	export FLASK_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+	echo "SECRET_KEY = '"`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`"'" >> config/$(LOCAL_CFG)
 
 remove_python_depens:
 	. $(VENV_DIR)/bin/activate && \
