@@ -6,5 +6,4 @@ SQLAlchemy
 Flask-SQLAlchemy
 Flask-Login
 Flask-Bcrypt
-redis
 psycopg2
