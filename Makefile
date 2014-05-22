@@ -13,10 +13,6 @@ install: system_depens create_virtualenv python_depens create_db create_cfg
 clean:
 	@ rm -rf $(VENV_DIR)
 
-activate:
-	@ . $(VENV_DIR)/bin/activate
-
-
 print_dir:
 	@ echo $(VENV_DIR)
 
@@ -26,7 +22,9 @@ system_depens:
 
 create_virtualenv:
 	@ echo "Installing Python virtual environment for project dependencies..." && \
-	test -d $(VENV_DIR) || virtualenv $(VENV_DIR)
+	test -d $(VENV_DIR) || virtualenv $(VENV_DIR) && \
+	. $(VENV_DIR)/bin/activate && \
+	/bin/bash config/postactivate.sh
 
 python_depens:
 	. $(VENV_DIR)/bin/activate && \

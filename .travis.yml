@@ -4,7 +4,7 @@ addons:
 
 env:
   global:
-    - SQLALCHEMY_DATABASE_URI="postgresql://postgres@127.0.0.1:travis_ci_test"
+    - FLASK_APPLICATION_SETTINGS="../config/travis.cfg"
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
@@ -18,7 +18,7 @@ python:
 install: "pip install -r requirements.txt"
 
 # command to run tests
-script: "python manage.py -c ../config/travis.cfg testall"
+script: "python manage.py testall"
 
 notifications:
   email: false

@@ -14,16 +14,9 @@ def create_app(config=None):
 
     # If no config file is passed in on the command line:
     if config is None:
-        config = os.path.join(app.root_path, '../config/example.cfg')
+        config = os.path.join(app.root_path, os.environ.get('FLASK_APPLICATION_SETTINGS'))
 
     app.config.from_pyfile(config)
-
-    # In case you don't wish to include them in your config file,
-    # These variables can be set in your local environment
-    # if app.config.get('SQLALCHEMY_DATABASE_URI') is None:
-    #     app.config.from_envvar('SQLALCHEMY_DATABASE_URI')
-    # if app.config.get('SECRET_KEY') is None:
-    #     app.config.from_envvar('SECRET_KEY')
 
     # Secret key needed to use sessions.
     app.secret_key = app.config['SECRET_KEY']

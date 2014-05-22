@@ -26,9 +26,9 @@ Red Hat, Fedora, and  other derivatives are said to require (confirmation would 
 Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome)
 
 #### 2. Python virtual environment and dependencies
-It's probably a good idea to create a virtual environment for this project using `virtualenv`, which is installed using:
+It's probably a good idea to create a virtual environment for this project using `virtualenv` and `virtualenvwrapper`, which are installed using:
 
-    pip install virtualenv
+    pip install virtualenvwrapper
 
 Then, clone the repo, cd into it, and create a project virtual environment.  I like to host my virtual environments in each project directory (but include it in the .gitignore so it's not gitable). So something like:
 
