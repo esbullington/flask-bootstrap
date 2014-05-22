@@ -60,6 +60,6 @@ list:
 	git ls-tree --full-tree -r HEAD
 
 run:
-	. $(VENV_DIR)/bin/activate && python app.py
+	. $(VENV_DIR)/bin/activate && python run.py
 
 .PHONY: install create_db python_depens system_depens create_virtualenv remove_python_depens drop_db
