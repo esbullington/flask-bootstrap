@@ -18,4 +18,4 @@ class DatabaseTestCase(unittest.TestCase):
 
     def test_empty_db(self):
         total = db.session.query(User).count()
-        assert total == 0
+        assert total == 1

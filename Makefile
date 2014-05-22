@@ -13,6 +13,10 @@ install: system_depens create_virtualenv python_depens create_db create_cfg
 clean:
 	@ rm -rf $(VENV_DIR)
 
+activate:
+	@ . $(VENV_DIR)/bin/activate
+
+
 print_dir:
 	@ echo $(VENV_DIR)
 
