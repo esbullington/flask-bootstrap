@@ -50,6 +50,7 @@ def user_create():
 def logout_view():
     logged_out = logout_user()
     if logged_out:
+        flash('User logged out')
         return render_template('logout.html', msg="User logged out")
     msg = 'No user to log out.'
     return render_template('logout.html', msg=msg)

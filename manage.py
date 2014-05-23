@@ -26,10 +26,11 @@ def dropdb():
 
 @manager.command
 def testdb():
-    from tests.test_database import DatabaseTestCase
+    from tests.test_database import DatabaseTestCase, AuthenticationTestCase
     import unittest
     runner = unittest.TextTestRunner()
     runner.run(unittest.makeSuite(DatabaseTestCase))
+    runner.run(unittest.makeSuite(AuthenticationTestCase))
 
 @manager.command
 def testall():
