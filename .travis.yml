@@ -2,6 +2,7 @@
 addons:
   postgresql: "9.1"
 
+# We have to use ../config since Flask files are relative to the *app* not the project
 env:
   global:
     - FLASK_APPLICATION_SETTINGS="../config/travis.cfg"
@@ -15,7 +16,7 @@ python:
   - "2.7"
 
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install: "pip install -r config/dev.reqs.txt
 
 # command to run tests
 script: "python manage.py testall"
