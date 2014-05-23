@@ -39,7 +39,7 @@ Then, clone the repo, cd into it, and create a project virtual environment.  I l
 
 Once you have the virtual environment installed on your system, and the system dependencies, the rest is simple:
 
-    pip install -r requirements.txt
+    pip install -r config/requirements.txt
 
 ## Quickstart
 * Install above dependencies

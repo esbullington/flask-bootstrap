@@ -29,7 +29,7 @@ create_virtualenv:
 python_depens:
 	. $(VENV_DIR)/bin/activate && \
 	echo "Installing project's Python dependencies..." && \
-	pip install -r requirements.txt
+	pip install -r config/requirements.txt
 
 create_cfg:
 	@ test -f config/$(LOCAL_CFG) || cat config/example.cfg > config/$(LOCAL_CFG) && \
@@ -39,7 +39,7 @@ create_cfg:
 remove_python_depens:
 	. $(VENV_DIR)/bin/activate && \
 	echo "Removing project's Python dependencies..." && \
-	pip uninstall -r requirements.txt
+	pip uninstall -r config/requirements.txt
 
 create_db:
 	@ sudo apt-get install -y postgresql && \

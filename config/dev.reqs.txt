@@ -1,0 +1,10 @@
+Flask
+Flask-Script
+WTForms
+Flask-WTF
+SQLAlchemy
+Flask-SQLAlchemy
+Flask-Login
+Flask-Bcrypt
+psycopg2
+pyquery
