@@ -16,6 +16,9 @@ clean:
 print_dir:
 	@ echo $(VENV_DIR)
 
+shell:
+	@ python manage.py shell
+
 system_depens:
 	@ echo "Installing project's system dependencies..." && \
 	sudo apt-get install postgresql python-pip python-dev libpq-dev python-virtualenv
@@ -64,4 +67,4 @@ list:
 run:
 	. $(VENV_DIR)/bin/activate && python run.py
 
-.PHONY: install create_db python_depens system_depens create_virtualenv remove_python_depens drop_db
+.PHONY: install create_db python_depens system_depens create_virtualenv remove_python_depens drop_db run list shell

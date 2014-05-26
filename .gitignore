@@ -4,3 +4,4 @@ config/development.cfg
 config/local.cfg
 venv
 *.swo
+*.swp
