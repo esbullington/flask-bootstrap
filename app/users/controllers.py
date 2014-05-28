@@ -5,6 +5,10 @@ from flask.ext.login import LoginManager, login_user, logout_user, current_user,
 from app.models.user import User, ROLE_USER, ROLE_ADMIN
 from app.database import db, bcrypt
 
+
+# Define the blueprint: 'auth', set its url prefix: app.url/auth
+users = Blueprint('users', __name__, url_prefix='/users')
+
 # Instantiate login
 login_manager = LoginManager()
 login_manager.login_view = 'login'
@@ -54,3 +58,9 @@ def logout_view():
         return render_template('logout.html', msg="User logged out")
     msg = 'No user to log out.'
     return render_template('logout.html', msg=msg)
+
+
+# URLs
+users.add_url_rule('/login/', 'login', login_view, methods=['GET', 'POST'])
+users.add_url_rule('/users/create/', 'user_create', user_create, methods=['GET', 'POST'])
+users.add_url_rule('/logout/', 'logout', logout_view)
