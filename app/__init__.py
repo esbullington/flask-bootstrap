@@ -3,8 +3,14 @@ from flask import Flask, request, jsonify, make_response, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, current_user
 from app.database import db, bcrypt
-from app.controllers import index, home
-from app.login import login_manager, login_view, logout_view, user_create
+
+from app.base.controllers import index, home
+
+# from app.users.forms import RegisterForm, LoginForm
+from app.users.login import login_manager, login_view, logout_view, user_create
+from app.users.models import User
+from app.users.decorators import requires_login
+
 import os
 
 def create_app(config=None):
