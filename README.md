@@ -69,7 +69,7 @@ Dev:
     - More unit tests for Flask app and JavaScript
     - Coherent organization of CSS assets
     - Flask-WTF support
-* For v0.0.3 (April 2014)
+* For v0.0.3
     - Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator)
     - Automated app naming through Flask-Script or Makefile
     - Add more and better documentation, using Sphinx and mitsuhiko/flask-sphinx-themes
