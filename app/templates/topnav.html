@@ -9,13 +9,13 @@
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged is as: {{ current_user.username }} <b class="caret"></b></a>
           <ul class="dropdown-menu pull-right">
-            <li><a href="/logout/">Logout</a></li>
+            <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
           </ul>
         </li>
     {% else %}
       <ul class="nav navbar-nav pull-right">
-        <li><a href="/login/">Login</a></li>
-        <li><a href="/users/create/">Signup</a></li>        
+        <li><a href="{{ url_for('users.login') }}">Login</a></li>
+        <li><a href="{{ url_for('users.user_create') }}">Signup</a></li>        
       </ul>
     {% endif %}
   </div>

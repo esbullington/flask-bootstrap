@@ -3,14 +3,7 @@ from flask import Flask, request, jsonify, make_response, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, current_user
 from app.database import db, bcrypt
-
-from app.base.controllers import index, home
-
-# from app.users.forms import RegisterForm, LoginForm
-from app.users.login import login_manager, login_view, logout_view, user_create
-from app.users.models import User
-from app.users.decorators import requires_login
-
+from app.mod_users.controllers import login_manager
 import os
 
 def create_app(config=None):
@@ -42,11 +35,14 @@ def create_app(config=None):
     def before_request():
         g.user = current_user
 
-    # URLs
-    app.add_url_rule('/', 'index', index)
-    app.add_url_rule('/login/', 'login', login_view, methods=['GET', 'POST'])
-    app.add_url_rule('/home/', 'home', home)
-    app.add_url_rule('/users/create/', 'user_create', user_create, methods=['GET', 'POST'])
-    app.add_url_rule('/logout/', 'logout', logout_view)
+    # Import a module / component using its blueprint handler variable
+    from app.mod_users.controllers import users as users_blueprint
+    from app.mod_base.controllers import base as base_blueprint
+    from app.mod_authenticated.controllers import authenticated as authenticated_blueprint
+
+    # Register blueprints
+    app.register_blueprint(users_blueprint)
+    app.register_blueprint(base_blueprint)
+    app.register_blueprint(authenticated_blueprint)
 
     return app
