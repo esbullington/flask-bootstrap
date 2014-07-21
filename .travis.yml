@@ -1,4 +1,7 @@
 
+# Temp workaround for DNS issues
+before_install: sudo bash -c 'echo "87.98.253.108 getcomposer.org" >> /etc/hosts' 
+
 addons:
   postgresql: "9.1"
 
