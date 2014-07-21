@@ -6,7 +6,13 @@ Flask application framework pre-configured for SQL Alchemy, flask-login, and Twi
 
 If you are looking for a Flask extension that uses Flask blueprints to provide Bootstrap support, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
 
-## Install
+## Quickstart
+* Install [system dependencies](#1-system-dependencies) and [Python dependencies](#2-python-virtual-environment-and-dependencies)
+* Customize your `config/app.cfg` (`make create_cfg` creates a basic `config/local.cfg`)
+* Fill out appropriate `Makefile` variables and run `make`
+* Then: `python run.py` or `make run`
+
+## Full installation instructions
 The main system dependencies are Python, Postgreql, and their respective development packages.  It could be easily adapted to run on MySQL or even SQLite, but the default installation instructions and Makefile below assume the use of PostgreSQL.
 
 #### Makefile
@@ -40,12 +46,6 @@ Then, clone the repo, cd into it, and create a project virtual environment.  I l
 Once you have the virtual environment installed on your system, and the system dependencies, the rest is simple:
 
     pip install -r config/requirements.txt
-
-## Quickstart
-* Install above dependencies
-* Customize your `app.cfg` (`local.cfg` would be a good name)
-* Get postgresql set up as outlined here: http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/
-* Then: `python run.py` or `make run`
 
 ## Tests
 `make test` or `python manage.py testall`
