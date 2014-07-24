@@ -29,7 +29,7 @@ Red Hat, Fedora, and  other derivatives are said to require (confirmation would 
 
     yum install yum install postgresql-devel postgresql-libs libpqxx-devel
 
-Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome)
+Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome).
 
 #### 2. Python virtual environment and dependencies
 It's probably a good idea to create a virtual environment for this project using `virtualenv` and `virtualenvwrapper`, which are installed using:
