@@ -1,0 +1,1 @@
+Yes, I can confirm that F0D6B1E0 was on the Truecrypt web site for at least the past year, since it's been on my keyring for at least that long.  I've installed Truecrypt multiple times over the past few years, and have always used this key to verify (or its signing subkey, I suppose). 
