@@ -47,6 +47,14 @@ Once you have the virtual environment installed on your system, and the system d
 
     pip install -r config/requirements.txt
 
+## Configuration
+* If you're using the Makefile, be sure to set your config filename
+* Otherwise, you can either:
+  - pass your config file using `python manage.py -c config/yourconfig.cfg runserver` or else
+  - set an environmental variable `FLASK_APPLICATION_SETTINGS` to point to your config file
+* Check to be sure your `SECRET_KEY` config setting is indeed secret and cryptographically strong (120+ bits of entropy)
+* The Makefile command `make create_cfg` sets this `SECRET_KEY` automatically as part of the config creation
+
 ## Tests
 `make test` or `python manage.py testall`
 

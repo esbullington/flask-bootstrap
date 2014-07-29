@@ -36,7 +36,7 @@ python_depens:
 
 create_cfg:
 	@ test -f config/$(LOCAL_CFG) || cat config/example.cfg > config/$(LOCAL_CFG) && \
-	export SQLALCHEMY_DATABASE_URI="postgresql://$(DB_OWNER):$(DB_PASSWD)@127.0.0.1/$(DB_NAME)" && \
+	echo "SQLALCHEMY_DATABASE_URI='postgresql://$(DB_OWNER):$(DB_PASSWD)@127.0.0.1/$(DB_NAME)'" >> config/$(LOCAL_CFG) && \
 	echo "SECRET_KEY = '"`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1`"'" >> config/$(LOCAL_CFG)
 
 remove_python_depens:
@@ -65,6 +65,6 @@ list:
 	git ls-tree --full-tree -r HEAD
 
 run:
-	. $(VENV_DIR)/bin/activate && python run.py
+	. $(VENV_DIR)/bin/activate && python manage.py -c ../config/$(LOCAL_CFG) runserver
 
 .PHONY: install create_db python_depens system_depens create_virtualenv remove_python_depens drop_db run list shell
