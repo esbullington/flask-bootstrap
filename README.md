@@ -6,7 +6,13 @@ Flask application framework pre-configured for SQL Alchemy, flask-login, and Twi
 
 If you are looking for a Flask extension that uses Flask blueprints to provide Bootstrap support, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
 
-## Install
+## Quickstart
+* Install the [system dependencies](#1-system-dependencies) and [Python dependencies](#2-python-virtual-environment-and-dependencies)
+* Customize your `config/app.cfg` (`make create_cfg` creates a basic `config/local.cfg`)
+* Fill out appropriate `Makefile` variables and run `make`
+* Then: `python run.py` or `make run`
+
+## Full installation instructions
 The main system dependencies are Python, Postgreql, and their respective development packages.  It could be easily adapted to run on MySQL or even SQLite, but the default installation instructions and Makefile below assume the use of PostgreSQL.
 
 #### Makefile
@@ -23,7 +29,7 @@ Red Hat, Fedora, and  other derivatives are said to require (confirmation would 
 
     yum install yum install postgresql-devel postgresql-libs libpqxx-devel
 
-Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome)
+Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome).
 
 #### 2. Python virtual environment and dependencies
 It's probably a good idea to create a virtual environment for this project using `virtualenv` and `virtualenvwrapper`, which are installed using:
@@ -41,11 +47,13 @@ Once you have the virtual environment installed on your system, and the system d
 
     pip install -r config/requirements.txt
 
-## Quickstart
-* Install above dependencies
-* Customize your `app.cfg` (`local.cfg` would be a good name)
-* Get postgresql set up as outlined here: http://www.cyberciti.biz/faq/howto-add-postgresql-user-account/
-* Then: `python run.py` or `make run`
+## Configuration
+* If you're using the Makefile, be sure to set your config filename
+* Otherwise, you can either:
+  - pass your config file using `python manage.py -c config/yourconfig.cfg runserver` or else
+  - set an environmental variable `FLASK_APPLICATION_SETTINGS` to point to your config file
+* Check to be sure your `SECRET_KEY` config setting is indeed secret and cryptographically strong (120+ bits of entropy)
+* The Makefile command `make create_cfg` sets this `SECRET_KEY` automatically as part of the config creation
 
 ## Tests
 `make test` or `python manage.py testall`
@@ -69,7 +77,7 @@ Dev:
     - More unit tests for Flask app and JavaScript
     - Coherent organization of CSS assets
     - Flask-WTF support
-* For v0.0.3 (April 2014)
+* For v0.0.3
     - Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator)
     - Automated app naming through Flask-Script or Makefile
     - Add more and better documentation, using Sphinx and mitsuhiko/flask-sphinx-themes

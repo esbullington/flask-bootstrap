@@ -1,4 +1,3 @@
-
 addons:
   postgresql: "9.1"
 
@@ -8,18 +7,21 @@ env:
     - FLASK_APPLICATION_SETTINGS="../config/travis.cfg"
 
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c "create database travis_ci_test;" -U postgres
 
-language: python
+language:
+  - python
 
 python:
   - "2.7"
 
 # command to install dependencies
-install: "pip install -r config/dev.reqs.txt
+install:
+  - "pip install -r config/dev.reqs.txt"
 
 # command to run tests
-script: "python manage.py testall"
+script:
+  - "python manage.py testall"
 
 notifications:
   email: false
