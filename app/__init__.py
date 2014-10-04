@@ -2,10 +2,13 @@
 from flask import Flask, request, jsonify, make_response, render_template, flash, redirect, url_for, session, escape, g
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, current_user
+from flask.ext.assets import Environment, Bundle
+
 from app.database import db, bcrypt
-from app.mod_home.controllers import base
+from app.mod_home.controllers import home
 from app.mod_authenticated.controllers import authenticated
 from app.mod_users.controllers import users, login_manager, csrf
+
 import os
 
 def create_app(config=None):
@@ -31,6 +34,12 @@ def create_app(config=None):
     # CSRF protection
     csrf.init_app(app)
 
+    # Web assets (js, less)
+    assets = Environment(app)
+    js = Bundle('js/main.js',
+                filters='jsmin', output='gen/bundle.js')
+    assets.register('js_all', js)
+
     # Automatically tear down SQLAlchemy
     @app.teardown_request
     def shutdown_session(exception=None):
@@ -40,7 +49,7 @@ def create_app(config=None):
     def before_request():
         g.user = current_user
 
-    app.register_blueprint(base)
+    app.register_blueprint(home)
     app.register_blueprint(authenticated)
     app.register_blueprint(users)
 

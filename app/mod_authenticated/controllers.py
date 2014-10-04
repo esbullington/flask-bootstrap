@@ -4,6 +4,11 @@ from flask.ext.login import login_required
 
 authenticated = Blueprint('authenticated', __name__, url_prefix='/authenticated', template_folder='authenticated')
 
+# Add CSS sheet only for unauthenticated urls
+@authenticated.context_processor
+def css_processor():
+    return dict(css='/static/css/inner.css')
+
 @login_required
 def index():
     return render_template('authenticated/index.html')

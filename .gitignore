@@ -4,5 +4,6 @@ logs/*.log
 config/development.cfg
 config/local.cfg
 venv
+.webassets-cache/
 *.swo
 *.swp
