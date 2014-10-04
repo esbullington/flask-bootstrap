@@ -6,6 +6,8 @@ Flask application framework pre-configured for SQL Alchemy, flask-login, and Twi
 
 If you are looking for a Flask extension that uses Flask blueprints to provide Bootstrap support, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
 
+Python 3 is now supported.
+
 ## Quickstart
 * Install the [system dependencies](#1-system-dependencies) and [Python dependencies](#2-python-virtual-environment-and-dependencies)
 * Customize your `config/app.cfg` (`make create_cfg` creates a basic `config/local.cfg`)
