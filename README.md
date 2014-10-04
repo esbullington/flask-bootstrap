@@ -8,6 +8,8 @@ If you are looking for a Flask extension that uses Flask blueprints to provide B
 
 Python 3 is now supported.
 
+There is also an experimental branch of this template app under `modularization` that uses Flask blueprints.
+
 ## Quickstart
 * Install the [system dependencies](#1-system-dependencies) and [Python dependencies](#2-python-virtual-environment-and-dependencies)
 * Customize your `config/app.cfg` (`make create_cfg` creates a basic `config/local.cfg`)
