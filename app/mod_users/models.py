@@ -11,9 +11,8 @@ class User(db.Model):
     email = db.Column(db.String(120), unique = True)
     # title = db.relationship('Title', backref = 'title', lazy = 'dynamic')
     pw_hash = db.Column(db.String(480))
-    first_name = db.Column(db.String(64))
-    last_name = db.Column(db.String(64))
-    middle_name = db.Column(db.String(64))
+    # just use a name for all those cultures that have no middle, first, etc. distinction
+    name = db.Column(db.String(240))
     role = db.Column(db.SmallInteger, default = ROLE_USER)
     created_on = db.Column(db.DateTime)      
 
