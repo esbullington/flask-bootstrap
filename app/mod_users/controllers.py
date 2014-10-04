@@ -2,12 +2,17 @@
 from flask import Blueprint, request, make_response, render_template, flash, redirect, url_for, session, g
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
+from flask_wtf.csrf import CsrfProtect
+
 from .models import User, ROLE_USER, ROLE_ADMIN
 from app.database import db, bcrypt
 
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 users = Blueprint('users', __name__, url_prefix='/users')
+
+# Protect against CSRF attacks
+csrf = CsrfProtect()
 
 # Instantiate login
 login_manager = LoginManager()

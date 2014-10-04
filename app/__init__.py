@@ -5,7 +5,7 @@ from flask.ext.login import LoginManager, current_user
 from app.database import db, bcrypt
 from app.mod_home.controllers import base
 from app.mod_authenticated.controllers import authenticated
-from app.mod_users.controllers import users, login_manager
+from app.mod_users.controllers import users, login_manager, csrf
 import os
 
 def create_app(config=None):
@@ -27,6 +27,9 @@ def create_app(config=None):
     db.init_app(app)
     login_manager.init_app(app)
     bcrypt.init_app(app)
+
+    # CSRF protection
+    csrf.init_app(app)
 
     # Automatically tear down SQLAlchemy
     @app.teardown_request
