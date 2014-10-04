@@ -3,8 +3,9 @@ from flask import Flask, request, jsonify, make_response, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, current_user
 from app.database import db, bcrypt
-from app.controllers import index, home
-from app.login import login_manager, login_view, logout_view, user_create
+from app.mod_base.controllers import base
+from app.mod_authenticated.controllers import authenticated
+from app.mod_users.controllers import users, login_manager
 import os
 
 def create_app(config=None):
@@ -36,11 +37,8 @@ def create_app(config=None):
     def before_request():
         g.user = current_user
 
-    # URLs
-    app.add_url_rule('/', 'index', index)
-    app.add_url_rule('/login/', 'login', login_view, methods=['GET', 'POST'])
-    app.add_url_rule('/home/', 'home', home)
-    app.add_url_rule('/users/create/', 'user_create', user_create, methods=['GET', 'POST'])
-    app.add_url_rule('/logout/', 'logout', logout_view)
+    app.register_blueprint(base)
+    app.register_blueprint(authenticated)
+    app.register_blueprint(users)
 
     return app

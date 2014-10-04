@@ -2,7 +2,7 @@
 from flask import Blueprint, request, make_response, render_template, flash, redirect, url_for, session, g
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, login_user, logout_user, current_user, login_required
-from app.mod_users.models import User, ROLE_USER, ROLE_ADMIN
+from .models import User, ROLE_USER, ROLE_ADMIN
 from app.database import db, bcrypt
 
 
@@ -55,9 +55,9 @@ def logout_view():
     logged_out = logout_user()
     if logged_out:
         flash('User logged out')
-        return render_template(url_for('users.logout'), msg="User logged out")
+        return render_template('users/logout.html', msg="User logged out")
     msg = 'No user to log out.'
-    return render_template(url_for('users.logout'), msg=msg)
+    return render_template('users/logout.html', msg=msg)
 
 
 # URLs
