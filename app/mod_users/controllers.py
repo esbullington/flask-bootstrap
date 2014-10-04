@@ -59,9 +59,11 @@ def register_view():
 def logout_view():
     logged_out = logout_user()
     if logged_out:
-        flash('User logged out')
-        return render_template('users/logout.html', msg="User logged out")
+        msg = 'User logged out'
+        flash(msg)
+        return render_template('users/logout.html', msg=msg)
     msg = 'No user to log out.'
+    flash(msg)
     return render_template('users/logout.html', msg=msg)
 
 
