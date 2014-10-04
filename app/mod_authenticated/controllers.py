@@ -5,9 +5,8 @@ from flask.ext.login import login_required
 authenticated = Blueprint('authenticated', __name__, url_prefix='/authenticated', template_folder='authenticated')
 
 @login_required
-def home():
-    ##Dump variables in templates
-    return render_template('authenticated/home.html')
+def index():
+    return render_template('authenticated/index.html')
 
 # URLs
-authenticated.add_url_rule('/home/', 'home', home)
+authenticated.add_url_rule('/authenticated/', 'index', index)

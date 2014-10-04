@@ -23,7 +23,7 @@ def login_view():
     if request.method == 'GET':
         return render_template('users/login.html')
     if g.user is not None and g.user.is_authenticated():
-        return redirect(url_for('authenticated.home'))
+        return redirect(url_for('authenticated.index'))
     username = request.form['username']
     user = User.query.filter(User.username==username).first()
     if user is None:
@@ -35,9 +35,9 @@ def login_view():
         return render_template('users/login.html')
     login_user(user)
     flash("Logged in successfully")
-    return redirect(url_for('authenticated.home'))
+    return redirect(url_for('authenticated.index'))
 
-def user_create():
+def register_view():
     if request.method == 'POST':
         username = request.form['username']
         if User.query.filter(User.username==username).first():
@@ -49,7 +49,7 @@ def user_create():
         db.session.commit()
         flash('User successfully registered. Please log in.')
         return redirect(url_for('users.login'))
-    return render_template('users/user_create.html')
+    return render_template('users/register.html')
 
 def logout_view():
     logged_out = logout_user()
@@ -62,5 +62,5 @@ def logout_view():
 
 # URLs
 users.add_url_rule('/login/', 'login', login_view, methods=['GET', 'POST'])
-users.add_url_rule('/create/', 'user_create', user_create, methods=['GET', 'POST'])
+users.add_url_rule('/register/', 'register', register_view, methods=['GET', 'POST'])
 users.add_url_rule('/logout/', 'logout', logout_view)

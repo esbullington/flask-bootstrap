@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, make_response, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager, current_user
 from app.database import db, bcrypt
-from app.mod_base.controllers import base
+from app.mod_home.controllers import base
 from app.mod_authenticated.controllers import authenticated
 from app.mod_users.controllers import users, login_manager
 import os
