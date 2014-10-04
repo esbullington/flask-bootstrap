@@ -24,7 +24,7 @@ def load_user(id):
         return User.query.get(int(id))
 
 ##login views
-def login_view():
+def login():
     if request.method == 'GET':
         return render_template('users/login.html')
     if g.user is not None and g.user.is_authenticated():
@@ -42,7 +42,7 @@ def login_view():
     flash("Logged in successfully")
     return redirect(url_for('authenticated.index'))
 
-def register_view():
+def register():
     if request.method == 'POST':
         username = request.form['username']
         if User.query.filter(User.username==username).first():
@@ -56,7 +56,7 @@ def register_view():
         return redirect(url_for('users.login'))
     return render_template('users/register.html')
 
-def logout_view():
+def logout():
     logged_out = logout_user()
     if logged_out:
         msg = 'User logged out'
@@ -68,6 +68,6 @@ def logout_view():
 
 
 # URLs
-users.add_url_rule('/login/', 'login', login_view, methods=['GET', 'POST'])
-users.add_url_rule('/register/', 'register', register_view, methods=['GET', 'POST'])
-users.add_url_rule('/logout/', 'logout', logout_view)
+users.add_url_rule('/login/', 'login', login, methods=['GET', 'POST'])
+users.add_url_rule('/register/', 'register', register, methods=['GET', 'POST'])
+users.add_url_rule('/logout/', 'logout', logout)
