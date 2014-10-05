@@ -9,3 +9,4 @@ Flask-Assets
 Flask-Bcrypt
 jsmin
 psycopg2
+beautifulsoup4
