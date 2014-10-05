@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import unittest
 
-from app.models import User
+from app.mod_users.models import User
 from app import create_app, db, bcrypt
 
 class DatabaseTestCase(unittest.TestCase):
@@ -28,6 +28,7 @@ class AuthenticationTestCase(unittest.TestCase):
     def setUp(self):
         app = create_app()
         app.config['TESTING'] = True
+        app.config['WTF_CSRF_ENABLED'] = False
         self.client = app.test_client()
         db.create_all()
 
@@ -36,7 +37,7 @@ class AuthenticationTestCase(unittest.TestCase):
         db.drop_all()
 
     def login(self, username, password):
-        return self.client.post('/login/', data=dict(
+        return self.client.post('/users/login/', data=dict(
             username=username,
             password=password
         ), follow_redirects=True)
@@ -58,7 +59,7 @@ class AuthenticationTestCase(unittest.TestCase):
         assert d.text == u'Logged in successfully'
 
     def test_logout(self):
-        res = self.client.get('/logout/', follow_redirects=True)
+        res = self.client.get('/users/logout/', follow_redirects=True)
         soup = BeautifulSoup(res.data)
         d = soup.find('span', 'flashdata')
         assert d.text == u'User logged out'
