@@ -7,4 +7,5 @@ Flask-SQLAlchemy
 Flask-Login
 Flask-Bcrypt
 Flask-Assets
+jsmin
 psycopg2
