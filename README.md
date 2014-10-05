@@ -1,20 +1,41 @@
-# flask-bootstrap
+Flask-Bootstrap
+=========
+Flask-Bootstrap is an Flask app template for users to clone and customize as desired, as opposed to a Flask extension that you can install and use in your existing application.
+
+----
+####!! ALERT !!####
+This is a drastically new version of the prior flask-bootstrap app template, now organized using [Flask blueprints](http://flask.pocoo.org/docs/0.10/blueprints/).  I think users will find this version much better suited for anything larger than the very smallest server applications.  This new version also features:
+
+- Flask-assets asset for Javascript and other static assets, based on the webassets module
+- CSRF protection
+
+However, in the event that you'd like to use the old flask-bootstrap template, it can now be found in the `old_master` branch.
+
+----
+
+Features
+----
+  - Flask, including Flask-SQLAlchemy for user data and Flask-Login for authentication
+  - Bootstrap 3
+  - Webassets for easy Javascript deployment
+  - Targeting OWASP web security standards
+  - Python 2 and 3 support
+
+Version
+----
+0.2.0
 
 [![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=master)](https://travis-ci.org/esbullington/flask-bootstrap)
 
-Flask application framework pre-configured for SQL Alchemy, flask-login, and Twitter bootstrap frontend. Meant to serve as a skeleton application for you to customize as desired, not as a Flask extension.
-
-If you are looking for a Flask extension that uses Flask blueprints to provide Bootstrap support, try the other [flask-bootstrap](https://github.com/mbr/flask-bootstrap).
-
-Python 3 is now supported.
-
-## Quickstart
+Quickstart
+----
 * Install the [system dependencies](#1-system-dependencies) and [Python dependencies](#2-python-virtual-environment-and-dependencies)
 * Customize your `config/app.cfg` (`make create_cfg` creates a basic `config/local.cfg`)
 * Fill out appropriate `Makefile` variables and run `make`
 * Then: `python run.py` or `make run`
 
-## Full installation instructions
+Full installation instructions
+----
 The main system dependencies are Python, Postgreql, and their respective development packages.  It could be easily adapted to run on MySQL or even SQLite, but the default installation instructions and Makefile below assume the use of PostgreSQL.
 
 #### Makefile
@@ -49,7 +70,8 @@ Once you have the virtual environment installed on your system, and the system d
 
     pip install -r config/requirements.txt
 
-## Configuration
+Configuration
+----
 * If you're using the Makefile, be sure to set your config filename
 * Otherwise, you can either:
   - pass your config file using `python manage.py -c config/yourconfig.cfg runserver` or else
@@ -57,7 +79,8 @@ Once you have the virtual environment installed on your system, and the system d
 * Check to be sure your `SECRET_KEY` config setting is indeed secret and cryptographically strong (120+ bits of entropy)
 * The Makefile command `make create_cfg` sets this `SECRET_KEY` automatically as part of the config creation
 
-## Tests
+Tests
+----
 `make test` or `python manage.py testall`
 
 Master:
@@ -68,19 +91,18 @@ Dev:
 
 [![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=development)](https://travis-ci.org/esbullington/flask-bootstrap)
 
-## Features
-* Base requirements.txt.
-* Bootstrap 3.1 frontend framework from Twitter.
-* Pre-integrated with flask-login, just create your postgres db and fill in models and app.cfg accordingly.
-* Existing user model and basic login/signup.
-
-## Roadmap
-* For v0.0.2 release (imminent)
+Roadmap
+----
+* For v0.3.0
     - More unit tests for Flask app and JavaScript
-    - Coherent organization of CSS assets
-    - Flask-WTF support
-* For v0.0.3
-    - Integrate some sort of Python asset manager for static assets (i.e., JS/CSS minifier, file concatenator)
     - Automated app naming through Flask-Script or Makefile
-    - Add more and better documentation, using Sphinx and mitsuhiko/flask-sphinx-themes
+    - Add more and better documentation, using Sphinx
+    - More attractive user interface
+* By version 1.0.0
     - Comprehensive security review and tests using OWASP standards
+    - Full Windows and OSX support
+
+License
+----
+
+BSD
