@@ -6,7 +6,7 @@ LOCAL_CFG=local.cfg
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 VENV_DIR=$(ROOT_DIR)/venv
 
-install: system_depens create_virtualenv python_depens create_db create_cfg
+install: system_depens create_virtualenv create_cfg python_depens create_db
 
 # Sub-tasks
 
