@@ -11,7 +11,7 @@ install: system_depens create_virtualenv create_cfg python_depens create_db
 # Sub-tasks
 
 clean:
-	@ rm -rf $(VENV_DIR)
+	@ rm -rf $(VENV_DIR) && find . -name "*.pyc" -type f -delete
 
 print_dir:
 	@ echo $(VENV_DIR)
