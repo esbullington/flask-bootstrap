@@ -92,6 +92,7 @@ Changelog
 ####v0.2.1
 * Reorganized module naming (`mod_home`->`mod_unauthenticated`)
 * Restyled Bootstrap in homepage and navbar
+
 ####v0.2.0
 * Flask Blueprints
 * Flask-assets asset for Javascript and other static assets, based on the webassets module
