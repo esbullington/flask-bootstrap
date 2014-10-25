@@ -8,14 +8,14 @@
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
-  color: #b3d1ea !important;
+  color: #fcf8e3 !important;
 }
 .navbar-brand {
   color: #fff !important;
 }
 
 a.navbar-brand:hover {
-  color: #b3d1ea !important;
+  color: #fcf8e3 !important;
 }
 
 .page-header {
