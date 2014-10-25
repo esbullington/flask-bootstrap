@@ -29,6 +29,8 @@
 
   <body>
 
+    {% include 'common/topnav.html' %}
+
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
@@ -41,10 +43,6 @@
         {% endfor %}
       {% endif %}
     {% endwith %}
-
-
-    {% include 'common/topnav.html' %}
-
 
     <div class="primary container">
 
