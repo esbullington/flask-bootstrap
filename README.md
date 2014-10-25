@@ -3,13 +3,9 @@ Flask-Bootstrap
 Flask-Bootstrap is an Flask app template for users to clone and customize as desired, as opposed to a Flask extension that you can install and use in your existing application.
 
 ----
-####!! ALERT !!####
-This is a drastically new version of the prior flask-bootstrap app template, now organized using [Flask blueprints](http://flask.pocoo.org/docs/0.10/blueprints/).  I think users will find this version much better suited for anything larger than the very smallest server applications.  This new version also features:
+This version of Flask-Bootstrap app template, v0.2.0, is a distinctly different version of the prior flask application template, now better organized using [Flask blueprints](http://flask.pocoo.org/docs/0.10/blueprints/).  I think users will find this version much better suited for anything larger than the very smallest of server-side web apps.
 
-- Flask-assets asset for Javascript and other static assets, based on the webassets module
-- CSRF protection
-
-However, in the event that you'd like to use the old flask-bootstrap template, it can now be found in the `old_master` branch.
+Nonetheless, in the event that you'd like to use the old flask-bootstrap template, that version can now be found in the `old_master` branch.
 
 ----
 
@@ -23,7 +19,7 @@ Features
 
 Version
 ----
-0.2.0
+0.2.1
 
 [![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=master)](https://travis-ci.org/esbullington/flask-bootstrap)
 
@@ -90,6 +86,16 @@ Master:
 Dev:
 
 [![Build Status](https://travis-ci.org/esbullington/flask-bootstrap.svg?branch=development)](https://travis-ci.org/esbullington/flask-bootstrap)
+
+Changelog
+----
+####v0.2.1
+* Reorganized module naming (`mod_home`->`mod_unauthenticated`)
+* Restyled Bootstrap in homepage and navbar
+####v0.2.0
+* Flask Blueprints
+* Flask-assets asset for Javascript and other static assets, based on the webassets module
+* CSRF protection
 
 Roadmap
 ----
