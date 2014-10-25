@@ -66,8 +66,12 @@ def logout():
     flash(msg)
     return render_template('users/logout.html', msg=msg)
 
+@login_required
+def settings():
+    return render_template('users/settings.html')
 
 # URLs
 users.add_url_rule('/login/', 'login', login, methods=['GET', 'POST'])
 users.add_url_rule('/register/', 'register', register, methods=['GET', 'POST'])
+users.add_url_rule('/settings/', 'settings', settings)
 users.add_url_rule('/logout/', 'logout', logout)
