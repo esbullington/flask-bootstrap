@@ -5,7 +5,7 @@ from flask.ext.login import LoginManager, current_user
 from flask.ext.assets import Environment, Bundle
 
 from app.database import db, bcrypt
-from app.mod_home.controllers import home
+from app.mod_unauthenticated.controllers import unauthenticated
 from app.mod_authenticated.controllers import authenticated
 from app.mod_users.controllers import users, login_manager, csrf
 
@@ -49,7 +49,7 @@ def create_app(config=None):
     def before_request():
         g.user = current_user
 
-    app.register_blueprint(home)
+    app.register_blueprint(unauthenticated)
     app.register_blueprint(authenticated)
     app.register_blueprint(users)
 

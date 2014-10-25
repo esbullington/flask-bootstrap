@@ -7,11 +7,11 @@ authenticated = Blueprint('authenticated', __name__, url_prefix='/authenticated'
 # Add CSS sheet only for unauthenticated urls
 @authenticated.context_processor
 def css_processor():
-    return dict(css='/static/css/inner.css')
+    return dict(css='/static/css/authenticated.css')
 
 @login_required
 def index():
     return render_template('authenticated/index.html')
 
 # URLs
-authenticated.add_url_rule('/authenticated/', 'index', index)
+authenticated.add_url_rule('/home/', 'index', index)
