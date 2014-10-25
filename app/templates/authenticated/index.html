@@ -1,17 +1,25 @@
 {% extends "common/base.html" %}
 
 {% block title %}Welcome Inside!{% endblock %}
-    {% block header %}Welcome to Flask!{% endblock %} 
-{% block main %}
- 
 
-      <!-- Main hero unit for a primary marketing message or call to action --> 
-      <div> 
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p> 
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-        <p>Current user: 
-	  {{ current_user.username }}
-        </p>
-      </div> 
+{% block header %}Welcome to Flask-Bootstrap!{% endblock %} 
+
+{% block main %}
+
+<!-- Main --> 
+<div> 
+
+  <h2 class="page-header">
+  The standard Lorem Ipsum passage, used since the 1500s
+  </h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+
+  <p>Current user: 
+  {{ current_user.username }}
+  </p>
+
+</div> 
 
 {% endblock %}
