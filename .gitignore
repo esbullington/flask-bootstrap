@@ -1,3 +1,4 @@
+static/gen/*
 *.pyc
 __pycache__
 logs/*.log

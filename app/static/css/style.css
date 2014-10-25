@@ -1,11 +1,14 @@
-
-.navbar-fixed-top {
-  padding: 0px 250px 0px;
-}
-
-.navbar-nav.nav-justified > li{
-    float:none;
+.navbar-static-top {
+  /* move the navbar brand and links off the side of the page */
+  /* padding: 0px 250px 0px; */
 }
 
 .primary.container {
+  /* effectively override Bootstrap's 20px bottom margin on the navbar */
+  margin-top: -20px;
 }
+
+/* .navcontainer.container-fluid { */
+/*   margin-right: auto; */
+/*   margin-left: auto; */
+/* } */
