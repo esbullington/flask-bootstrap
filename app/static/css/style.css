@@ -1,14 +1,23 @@
-.navbar-static-top {
-  /* move the navbar brand and links off the side of the page */
-  /* padding: 0px 250px 0px; */
+
+/* ******************** */
+/* Bootstrap overrides */
+/* ******************** */
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff !important;
 }
 
-.primary.container {
-  /* effectively override Bootstrap's 20px bottom margin on the navbar */
-  margin-top: -20px;
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #b3d1ea !important;
+}
+.navbar-brand {
+  color: #fff !important;
 }
 
-/* .navcontainer.container-fluid { */
-/*   margin-right: auto; */
-/*   margin-left: auto; */
-/* } */
+a.navbar-brand:hover {
+  color: #b3d1ea !important;
+}
+
+.page-header {
+  margin: 20px 0 20px !important;
+}
