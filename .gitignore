@@ -1,4 +1,4 @@
-static/gen/*
+app/static/gen/*
 *.pyc
 __pycache__
 logs/*.log
