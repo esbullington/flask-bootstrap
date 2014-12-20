@@ -46,7 +46,7 @@ On Ubuntu or Debian, first install:
 
 Red Hat, Fedora, and  other derivatives are said to require (confirmation would be welcome):
 
-    yum install yum install postgresql-devel postgresql-libs libpqxx-devel
+    yum install postgresql-devel postgresql-libs libpqxx-devel
 
 Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome).
 
