@@ -27,7 +27,7 @@ def load_user(id):
 def login():
     if request.method == 'GET':
         return render_template('users/login.html')
-    if g.user is not None and g.user.is_authenticated():
+    if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('authenticated.index'))
     username = request.form['username']
     user = User.query.filter(User.username==username).first()
