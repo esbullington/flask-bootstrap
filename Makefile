@@ -2,6 +2,7 @@ DB_OWNER="testuser"
 DB_NAME="testdb"
 DB_PASSWD="testpassword"
 LOCAL_CFG=local.cfg
+HOST=0.0.0.0
 
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 VENV_DIR=$(ROOT_DIR)/venv
@@ -65,6 +66,6 @@ list:
 	git ls-tree --full-tree -r HEAD
 
 run:
-	. $(VENV_DIR)/bin/activate && python manage.py -c ../config/$(LOCAL_CFG) runserver
+	. $(VENV_DIR)/bin/activate && python manage.py -c ../config/$(LOCAL_CFG) runserver --host $(HOST)
 
 .PHONY: install create_db python_depens system_depens create_virtualenv remove_python_depens drop_db run list shell
