@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, Blueprint, request, jsonify, make_response, render_template, flash, redirect, url_for, session, escape, g
-from flask.ext.login import login_required
+from flask_login import login_required
 
 unauthenticated = Blueprint('unauthenticated', __name__, template_folder='unauthenticated')
 

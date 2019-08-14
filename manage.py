@@ -1,5 +1,5 @@
 # manage.py
-from flask.ext.script import Shell, Manager
+from flask_script import Shell, Manager
 from flask import current_app
 
 from app.database import db

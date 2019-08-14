@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, make_response, render_template, flash, redirect, url_for, session, escape, g
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.login import LoginManager, current_user
-from flask.ext.assets import Environment, Bundle
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, current_user
+from flask_assets import Environment, Bundle
 
 from app.database import db, bcrypt
 from app.mod_unauthenticated.controllers import unauthenticated
