@@ -1,20 +1,21 @@
+language: python
+
+sudo: false
+
+python:
+	- "2.7"
+  - "3.7"
+
+# Match postgresql version to that in conf/pillar/project.sls
 addons:
-  postgresql: "9.1"
+  postgresql: "9.3"
 
 # We have to use ../config since Flask files are relative to the *app* not the project
 env:
-  global:
-    - FLASK_APPLICATION_SETTINGS="../config/travis.cfg"
+	- FLASK_APPLICATION_SETTINGS="../config/travis.cfg"
 
 before_script:
   - psql -c "create database travis_ci_test;" -U postgres
-
-language:
-  - python
-
-python:
-  - "2.7"
-  - "3.3"
 
 # command to install dependencies
 install:
