@@ -8,7 +8,10 @@ python:
 
 # Match postgresql version to that in conf/pillar/project.sls
 addons:
-  postgresql: "9.3"
+  postgresql: "9.4"
+
+services:
+  - postgresql
 
 # We have to use ../config since Flask files are relative to the *app* not the project
 env:
