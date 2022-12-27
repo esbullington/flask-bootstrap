@@ -3,7 +3,7 @@ Flask-Bootstrap
 Flask-Bootstrap is an Flask app template for users to clone and customize as desired, as opposed to a Flask extension that you can install and use in your existing application.
 
 ----
-This version of Flask-Bootstrap app template, v0.2.0, is a distinctly different version of the prior flask application template, now better organized using [Flask blueprints](http://flask.pocoo.org/docs/0.10/blueprints/).  I think users will find this version much better suited for anything larger than the very smallest of server-side web apps.
+This version of Flask-Bootstrap app template, v0.2.0, is a distinctly different version of the prior flask application template, now better organized using [Flask blueprints](https://flask.palletsprojects.com/en/2.2.x/blueprints/).  I think users will find this version much better suited for anything larger than the very smallest of server-side web apps.
 
 Nonetheless, in the event that you'd like to use the old flask-bootstrap template, that version can now be found in the `old_master` branch.
 
@@ -48,7 +48,7 @@ Red Hat, Fedora, and  other derivatives are said to require (confirmation would 
 
     yum install postgresql-devel postgresql-libs libpqxx-devel
 
-Here's a [brief article](http://initd.org/psycopg/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome).
+Here's a [brief article](https://www.psycopg.org/articles/2011/06/05/psycopg-windows-mingw/) on getting these dependencies running on Windows (exact instructions would be welcome).
 
 #### 2. Python virtual environment and dependencies
 It's probably a good idea to create a virtual environment for this project using `virtualenv` and `virtualenvwrapper`, which are installed using:
